@@ -12,17 +12,12 @@ This project tracks website visitors and sends notifications to Telegram when so
 
 ## Setup
 1. Clone this repository: `git clone https://github.com/your-repo/stitch.git`
-2. Install dependencies: `npm install` (if applicable)
-3. Copy `.env.example` to `.env` and configure your environment variables
-4. Add the script.js file to your website's HTML:
-```html
-<script src="script.js"></script>
-```
+2. Copy `config.env.example.js` to `config.env.js` and configure your environment variables
 
 ## Configuration
 1. Create a Telegram bot using @BotFather and get your bot token
 2. Get your chat ID using @userinfobot
-3. Edit the `config` object in script.js:
+3. Edit the `config` object in config.env.js:
 - `botToken`: Your Telegram bot token (or set TELEGRAM_BOT_TOKEN in .env)
 - `chatId`: Your Telegram chat ID (or set TELEGRAM_CHAT_ID in .env)
 

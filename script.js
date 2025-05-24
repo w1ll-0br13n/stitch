@@ -1,8 +1,6 @@
 // Configuration
-const config = {
-  botToken: process.env.BOT_TOKEN,
-  chatId: process.env.CHAT_ID
-};
+// Configuration loaded from config.js
+config = window.config;
 
 // Toast notification function
 function showToast(message, type = 'success') {
@@ -26,9 +24,9 @@ async function getVisitorInfo() {
     const locationData = await locationResponse.json();
     
     return {
-      ip: ipData.ip,
-      city: locationData.city,
-      country: locationData.country_name
+      ip: ipData?.ip,
+      city: locationData?.city,
+      country: locationData?.country_name
     };
   } catch (error) {
     console.error('Error getting visitor info:', error);
@@ -70,17 +68,24 @@ async function sendVisitorInfo() {
 window.addEventListener('load', sendVisitorInfo);
 
 async function submitForm() {
-  const name = document.querySelector('input[type="text"]').value;
-  const email = document.querySelector('input[type="email"]').value;
-  const offer = document.querySelector('input[placeholder="Your Offer"]').value;
+  const name = document.querySelector('input[name="visitorName"]').value;
+  const email = document.querySelector('input[name="visitorEmail"]').value;
+  const offer = document.querySelector('input[name="visitorOffer"]').value;
   
   // Basic validation
   if (!name || !email || !offer) {
     showToast('Please fill in all fields', 'error');
     return;
   }
+  
+  // Email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    showToast('Please enter a valid email address', 'error');
+    return;
+  }
 
-  const message = `New domain purchase inquiry:\nName: ${name}\nEmail: ${email}\nOffer: ${offer}`;
+  const message = `(domain.com) New domain purchase inquiry:\nName: ${name}\nEmail: ${email}\nOffer: ${offer}`;
   
   try {
     const success = await sendTelegramMessage(message);
