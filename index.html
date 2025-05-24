@@ -50,8 +50,8 @@
             <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Stitch</h2>
           </div>
           <div class="flex gap-2">
-            <a href="#buyThisDomain"><button
-              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-4 bg-black text-white text-sm font-bold leading-normal tracking-[0.015em]"
+            <a href="#buyThisDomain"><button style="background-color: #FBBFB2;"
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-9 px-4 bg-black text-black text-sm font-bold leading-normal tracking-[0.015em]"
             >
               <span class="truncate">Buy This Domain</span>
             </button></a>
@@ -75,11 +75,11 @@
                       Transform ideas into UI designs for mobile and web applications.
                     </h2>
                   </div>
-                  <button
+                  <a href="https://www.usegalileo.ai/create/text-to-ui-example-3"><button
                     class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-black text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
                   >
                     <span class="truncate">Generate designs</span>
-                  </button>
+                  </button></a>
                   <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 text-black bg-white p-4 rounded-xl">
                     <div class="bg-white p-4 rounded-lg shadow">
                       <h3 class="text-xl font-bold">Empowering Innovation</h3>
@@ -143,5 +143,11 @@
         </div>
       </div>
     </div>
+    <footer class="text-center bg-black text-white py-4 text-sm">
+      &copy; <span id="copyright-year"></span> Stitch. All rights reserved.
+    </footer>
+    <script>
+      document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
