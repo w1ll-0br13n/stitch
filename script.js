@@ -1,7 +1,7 @@
 // Configuration
 const config = {
-  botToken: 'YOUR_BOT_TOKEN',
-  chatId: 'YOUR_CHAT_ID'
+  botToken: process.env.BOT_TOKEN,
+  chatId: process.env.CHAT_ID
 };
 
 // Toast notification function
