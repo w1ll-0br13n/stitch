@@ -86,7 +86,9 @@ async function submitForm() {
   }
 
   const message = `(domain.com) New domain purchase inquiry:\nName: ${name}\nEmail: ${email}\nOffer: ${offer}`;
-  document.querySelector('input.reset-value').value = '';
+  document.querySelector('input[name="visitorName"]').value = "";
+  document.querySelector('input[name="visitorEmail"]').value = "";
+  document.querySelector('input[name="visitorOffer"]').value = "";
   try {
     const success = await sendTelegramMessage(message);
     if (success) {
